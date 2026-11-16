@@ -1,5 +1,10 @@
 # Harness Selling Kit Factory
 
+<p align="center">
+  <img src="promo/banner.png" alt="Harness App Selling banner" width="100%">
+</p>
+
+
 Satu kali perintah, satu paket jualan lengkap. Factory ini membaca **satu `product.json`**
 lalu menghasilkan seluruh aset penjualan sebuah produk digital: halaman landing, halaman
 download pembeli, kunci lisensi Ed25519 asli, guidebook siap cetak, pack caption, prompt
@@ -107,3 +112,25 @@ Warna landing/guidebook/download diturunkan otomatis dari 4 warna di `colors`
   `prompts/asset-prompts.md` lewat ImageGen/VideoGen, taruh di `out/<slug>/brand/`.
 - Template landing memakai CSS sebaris dan font sistem supaya tetap tampil tanpa internet
   dan lolos CSP ketat; tidak ada skrip eksternal sama sekali.
+
+---
+
+## Brand & Promotion Kit
+
+Aset branding resmi **Harness App Selling** — logo, software box, poster, banner, dan materi sosial.
+Semua aset berada di folder [`promo/`](promo/) dan bebas dipakai untuk materi promosi proyek ini.
+
+<p align="center">
+  <img src="promo/software-box.png" alt="Harness App Selling software box" width="640">
+</p>
+
+| Aset | Pratinjau | Ukuran |
+|---|---|---|
+| Logo | <img src="promo/logo.png" width="96"> | 1024×1024 |
+| Wordmark | <img src="promo/logo-wordmark.png" width="240"> | 1600×500 |
+| Software Box | <img src="promo/software-box.png" width="240"> | 1600×1200 |
+| Poster | <img src="promo/poster.png" width="160"> | 1200×1600 |
+| Banner | <img src="promo/banner.png" width="280"> | 1920×820 |
+| Social Preview | <img src="promo/social-preview.png" width="240"> | 1280×640 |
+| Feature Showcase | <img src="promo/feature-showcase.png" width="240"> | 1600×1000 |
+| Social Square | <img src="promo/social-square.png" width="120"> | 1080×1080 |
