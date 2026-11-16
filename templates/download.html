@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; media-src 'self'; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="description" content="Halaman download dan aktivasi lisensi {{product.name}}.">
+<title>Download &amp; Aktivasi Lisensi — {{product.name}}</title>
+<!--
+  Halaman pembeli: dikirim lewat email setelah checkout berhasil.
+  GANTI semua tautan bertanda "GANTI" dengan URL file asli (Cloudflare R2 / Drive / hosting Anda).
+-->
+<style>
+:root{
+  --bg:{{theme.bg}}; --bg2:{{theme.bg2}}; --card:{{theme.card}}; --line:{{theme.line}};
+  --accent:{{theme.accent}}; --accent2:{{theme.accent2}};
+  --text:{{theme.text}}; --muted:{{theme.muted}}; --dim:{{theme.dim}}; --ink:{{theme.ink}};
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+header{padding:72px 0 40px;text-align:center;background:radial-gradient(700px 320px at 50% -10%,{{theme.glowMid}},transparent 65%)}
+header img{width:72px;height:72px;border-radius:18px;margin:0 auto 22px;box-shadow:0 0 44px {{theme.glowStrong}}}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,40px);font-weight:300}
+h1 b{font-weight:600;background:{{theme.gradient}};-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:var(--muted);max-width:600px;margin:16px auto 0}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:20px;font-weight:600;margin-bottom:6px}
+.lead{color:var(--muted);font-size:15px;margin-bottom:24px}
+ol{list-style:none;counter-reset:it}
+ol li{counter-increment:it;position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px 18px 62px;margin-bottom:12px;font-size:15px;color:var(--muted)}
+ol li::before{content:counter(it);position:absolute;left:18px;top:17px;width:28px;height:28px;border-radius:50%;background:{{theme.gradient}};color:var(--ink);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+ol li b{color:var(--text)}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--accent);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+td b{color:var(--text)}
+td span{color:var(--muted)}
+.box{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:18px 20px;font-size:14px;color:var(--muted);margin-top:18px}
+.btn{display:inline-block;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:600;background:{{theme.gradient}};color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--dim);font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="{{product.brand}}/logo.png" alt="Logo {{product.name}}">
+    <div class="kicker">Area Pembeli</div>
+    <h1>{{copy.downloadTitle}}</h1>
+    <p>{{copy.downloadIntro}}</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>A. Isi paket Anda</h2>
+    <p class="lead">Semua berkas di bawah dikirim otomatis setelah pembayaran. Simpan tautannya — berlaku lama, tapi sebaiknya unduh sekarang.</p>
+    <table>
+      <tr><th>#</th><th>Berkas</th><th>Unduh</th></tr>
+      {{#each files}}<tr><td><b>{{_num}}</b></td><td><b>{{title}}</b><br><span>{{desc}}</span></td><td><code>GANTI-URL-{{file}}</code></td></tr>
+      {{/each}}    </table>
+    <div class="box">
+      <!-- GANTI: tautan unduhan di atas masih placeholder. Isi dengan URL file Anda (R2 / Drive / hosting) sebelum halaman ini dipublikasikan. -->
+      <b>Catatan untuk penjual:</b> ganti seluruh teks <code>GANTI-URL-…</code> dengan tautan berkas asli, lalu hapus komentar di kode sumber halaman ini.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>B. Aktivasi lisensi ({{product.name}})</h2>
+    <p class="lead">Kode lisensi Anda ada di email pembelian. Aktivasi dilakukan offline — tanpa server, tanpa akun.</p>
+    <ol>
+      {{#each activationSteps}}<li>{{&this}}</li>
+      {{/each}}    </ol>
+    <div class="box">
+      Kode tidak valid? Pastikan tidak ada spasi tambahan saat menempelkan kode. Satu kode berlaku untuk <b>{{licenseSeats}} perangkat</b>{{licenseExpiryText}}.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>C. Install manual (load unpacked)</h2>
+    <p class="lead">Pakai cara ini bila Anda tidak memasang dari Chrome Web Store, atau ingin menguji versi yang sama seperti di buku panduan.</p>
+    <ol>
+      {{#each installSteps}}<li><b>{{title}}</b> — {{&desc}}</li>
+      {{/each}}    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>D. Setup AI &amp; template .env</h2>
+    <p class="lead">Opsional, tapi disarankan. Buka Settings &rarr; Koneksi di dalam produk, lalu pilih salah satu jalur:</p>
+    <ol>
+      <li><b>Import file .env</b> — salin <code>env/.env.example</code> menjadi <code>.env</code>, isi kunci API provider yang Anda punya, lalu klik <b>Import .env</b>. Kunci langsung tersimpan terenkripsi di perangkat Anda.</li>
+      <li><b>Isi manual</b> — tempel satu per satu di Settings: {{providerList}}.</li>
+      <li><b>AI lokal</b> — tanpa kunci API sama sekali (Ollama / LM Studio di <code>127.0.0.1</code>), cocok untuk data sensitif.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>E. Edisi lain &amp; upgrade</h2>
+    <p class="lead">Kode yang Anda pegang berlaku untuk edisi yang dibeli. Mau naik tingkat? Beli edisi di atasnya, aktivasi kode barunya — data, job, dan pengaturan Anda tetap utuh.</p>
+    <table>
+      <tr><th>Edisi</th><th>Harga</th><th>Isi singkat</th></tr>
+      {{#each editionRows}}<tr>
+        <td><b>{{name}}</b>{{#if badge}} <span><code>{{badge}}</code></span>{{/if}}</td>
+        <td><span>{{price}}{{#if priceNote}} · {{priceNote}}{{/if}}<br><a href="{{checkoutUrl}}"><!-- GANTI: URL checkout {{name}} -->Beli &rarr;</a></span></td>
+        <td><span>{{summary}}</span></td>
+      </tr>
+      {{/each}}    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>F. Butuh bantuan?</h2>
+    <p class="lead">{{copy.supportLine}}</p>
+    <table>
+      <tr><td><b>Email support</b></td><td><span><a href="mailto:{{product.supportEmail}}">{{product.supportEmail}}</a></span></td></tr>
+      <tr><td><b>WhatsApp / telepon</b></td><td><span><code>GANTI-NOMOR-WA</code></span></td></tr>
+      <tr><td><b>Buku panduan PDF</b></td><td><span>Ada di isi paket nomor 3 — bab troubleshooting di halaman belakang.</span></td></tr>
+      <tr><td><b>Repo &amp; aset brand</b></td><td><span><a href="{{product.brandRepoUrl}}">{{product.brandRepoUrl}}</a></span></td></tr>
+    </table>
+    <p class="lead" style="margin:22px 0 0"><a class="btn" href="index.html">Kembali ke halaman produk</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>{{product.name}} · {{copy.footerTagline}} · Versi {{product.version}}</div>
+    <p style="margin-top:8px">{{copy.legalNote}}</p>
+    <p style="margin-top:8px">© {{year}} — halaman ini tanpa pelacak dan tanpa JavaScript.</p>
+  </div>
+</footer>
+
+</body>
+</html>

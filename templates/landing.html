@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; media-src 'self'; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="{{product.name}} — {{product.description}}">
+<title>{{product.name}} — {{copy.heroTitle}} {{copy.heroHighlight}}</title>
+<!--
+  Halaman ini dihasilkan otomatis oleh Harness Selling Kit Factory.
+  Sumber teks & harga: examples/<slug>/product.json  (slug: {{product.slug}})
+  Yang masih manual: link checkout (cari kata "GANTI" di file ini).
+  Tanpa JavaScript, tanpa aset eksternal, aman di-host di Cloudflare Pages.
+-->
+<style>
+:root{
+  --bg:{{theme.bg}}; --bg2:{{theme.bg2}}; --card:{{theme.card}}; --line:{{theme.line}};
+  --accent:{{theme.accent}}; --accent2:{{theme.accent2}};
+  --text:{{theme.text}}; --muted:{{theme.muted}}; --dim:{{theme.dim}}; --ink:{{theme.ink}};
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+h1,h2,h3{font-weight:300;letter-spacing:.01em}
+h2{font-size:clamp(26px,4vw,38px);margin-bottom:12px}
+.sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:14px}
+.btn{display:inline-block;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:600;letter-spacing:.02em;transition:transform .15s ease,opacity .15s ease}
+.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn-primary{background:{{theme.gradient}};color:var(--ink)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.note{font-size:12px;color:var(--dim)}
+nav{position:sticky;top:0;z-index:50;background:{{theme.navBg}};backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
+nav img{width:34px;height:34px;border-radius:8px}
+nav .brand{font-weight:600;letter-spacing:.06em}
+nav .links{display:flex;gap:22px;margin-left:auto;font-size:14px}
+nav .links a{color:var(--muted)}
+nav .links a:hover{color:var(--text)}
+nav .btn{padding:9px 20px;font-size:13px}
+@media(max-width:760px){nav .links{display:none}}
+.hero{padding:96px 0 72px;text-align:center;background:radial-gradient(900px 420px at 50% -10%,{{theme.glowMid}},transparent 65%)}
+.hero img.mark{width:96px;height:96px;margin:0 auto 28px;border-radius:22px;box-shadow:0 0 60px {{theme.glowStrong}}}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.15}
+.hero h1 b{font-weight:600;background:{{theme.gradient}};-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:640px;margin:20px auto 36px;font-size:17px}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .banner{margin:64px auto 0;border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:26px 0}
+.strip .wrap{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.strip b{color:var(--accent);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card .ico{margin-bottom:14px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:{{theme.glowSoft}};border:1px solid var(--glow-line,{{theme.glowLine}})}
+.card .ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:17px;font-weight:600;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 26px 78px}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:22px;top:24px;width:38px;height:38px;border-radius:50%;background:{{theme.gradient}};color:var(--ink);font-weight:700;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted)}
+.pricing{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media(max-width:860px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column}
+.plan.hot{border-color:var(--accent);box-shadow:0 0 50px {{theme.glowSoft}};position:relative}
+.plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:{{theme.gradient}};color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 16px;border-radius:99px;text-transform:uppercase}
+.plan h3{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.plan .price{font-size:36px;font-weight:300;margin:14px 0 4px}
+.plan .price small{font-size:14px;color:var(--dim)}
+.plan ul{list-style:none;margin:22px 0 28px;flex:1}
+.plan li{font-size:14px;color:var(--muted);padding:7px 0 7px 26px;position:relative}
+.plan li::before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.plan li.no{color:var(--dim)}
+.plan li.no::before{background:var(--dim)}
+.plan .btn{text-align:center}
+.bundle{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+@media(max-width:860px){.bundle{grid-template-columns:1fr}}
+.bundle img{border-radius:16px;border:1px solid var(--line)}
+.dl{list-style:none;margin-top:26px}
+.dl li{padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted);display:flex;gap:14px}
+.dl li b{color:var(--text);font-weight:600;min-width:190px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:13px;padding:8px 18px;border-radius:99px}
+video{width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none}
+summary::before{content:"+ ";color:var(--accent)}
+details[open] summary::before{content:"– "}
+details p{margin-top:10px;font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--dim);font-size:13px}
+footer .brandline{color:var(--text);letter-spacing:.14em;font-size:13px;text-transform:uppercase}
+.sec-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:{{theme.glowSoft}};color:var(--accent);font-size:12px;padding:6px 14px;border-radius:99px;margin-top:18px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <img src="{{product.brand}}/logo.png" alt="Logo {{product.name}}">
+    <span class="brand">{{product.name}}</span>
+    <div class="links">
+      <a href="#fitur">Fitur</a>
+      <a href="#cara">Cara Kerja</a>
+      <a href="#harga">Harga</a>
+      <a href="#bundle">Isi Paket</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <!-- GANTI href di bawah dengan link checkout {{product.name}} ({{product.checkoutNote}}) -->
+    <a class="btn btn-primary" href="#harga">{{copy.navCta}}</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="mark" src="{{product.brand}}/logo.png" alt="{{product.name}}">
+    <div class="kicker">{{copy.heroKicker}}</div>
+    <h1>{{copy.heroTitle}}<br><b>{{copy.heroHighlight}}</b></h1>
+    <p>{{product.description}}</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#harga">{{copy.navCta}}</a>
+      <a class="btn btn-ghost" href="#cara">Lihat Cara Kerja</a>
+    </div>
+    <img class="banner" src="{{product.brand}}/hero-banner.png" alt="{{product.name}} — {{copy.heroHighlight}}">
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    {{#each stats}}<span><b>{{value}}</b> {{label}}</span>
+    {{/each}}  </div>
+</div>
+
+<section id="fitur">
+  <div class="wrap">
+    <div class="kicker">{{copy.featuresKicker}}</div>
+    <h2>{{copy.featuresTitle}}</h2>
+    <p class="sub">{{copy.featuresSub}}</p>
+    <div class="grid">
+      {{#each features}}<div class="card"><span class="ico">{{&svg}}</span><h3>{{title}}</h3><p>{{desc}}</p></div>
+      {{/each}}    </div>
+  </div>
+</section>
+
+<section id="cara" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">{{copy.stepsKicker}}</div>
+    <h2>{{copy.stepsTitle}}</h2>
+    <p class="sub">{{copy.stepsSub}}</p>
+    <div class="steps">
+      {{#each steps}}<div class="step"><h3>{{title}}</h3><p>{{desc}}</p></div>
+      {{/each}}    </div>
+  </div>
+</section>
+
+<section class="pricing" id="harga">
+  <div class="wrap">
+    <div class="kicker">{{copy.pricingKicker}}</div>
+    <h2>{{copy.pricingTitle}}</h2>
+    <p class="sub">{{copy.pricingSub}}</p>
+    <div class="plans">
+      {{#each editions}}<div class="{{planClass}}">
+        {{#if highlight}}<span class="tag">{{badge}}</span>
+        {{/if}}        <h3>{{name}}</h3>
+        <div class="price">{{&priceHtml}}</div>
+        <ul>
+          {{#each items}}<li{{&liClass}}>{{label}}</li>
+          {{/each}}        </ul>
+        <!-- GANTI href="#" dengan link checkout {{name}} ({{@root.product.checkoutNote}}) -->
+        <a class="btn {{#if highlight}}btn-primary{{else}}btn-ghost{{/if}}" href="{{checkoutUrl}}">{{#if isFree}}Install Gratis{{else}}Beli {{name}}{{/if}}</a>
+      </div>
+      {{/each}}    </div>
+    <p class="note" style="margin-top:22px">{{copy.pricingNote}}</p>
+  </div>
+</section>
+
+<section id="bundle">
+  <div class="wrap bundle">
+    <img src="{{product.brand}}/software-box.png" alt="Kotak produk {{product.name}}">
+    <div>
+      <div class="kicker">{{copy.bundleKicker}}</div>
+      <h2>{{copy.bundleTitle}}</h2>
+      <p class="sub" style="margin-bottom:0">{{copy.bundleSub}}</p>
+      <ul class="dl">
+        {{#each bundleItems}}<li><b>{{_num}} · {{title}}</b> {{desc}}</li>
+        {{/each}}      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="sektor" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">{{copy.sectorsKicker}}</div>
+    <h2>{{copy.sectorsTitle}}</h2>
+    <p class="sub">{{copy.sectorsSub}}</p>
+    <div class="chips">
+      {{#each sectors}}<span class="chip">{{name}}</span>
+      {{/each}}    </div>
+  </div>
+</section>
+
+<section id="video" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">{{copy.videoKicker}}</div>
+    <h2>{{copy.videoTitle}}</h2>
+    <p class="sub">{{copy.videoSub}}</p>
+    <video src="{{product.brand}}/promo-video.mp4" controls muted playsinline preload="metadata" poster="{{product.brand}}/hero-banner.png"></video>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">{{copy.faqKicker}}</div>
+    <h2>{{copy.faqTitle}}</h2>
+    <p class="sub">{{copy.faqSub}}</p>
+    {{#each faq}}<details><summary>{{q}}</summary><p>{{a}}</p></details>
+    {{/each}}  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="{{product.brand}}/logo.png" alt="" style="width:40px;height:40px;border-radius:10px;margin:0 auto 14px">
+    <div class="brandline">{{product.name}} · {{copy.footerTagline}}</div>
+    <div class="sec-badge"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round"><path d="M12 2.5l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6z"/></svg>Halaman statis tanpa pelacak · aman dihosting di Cloudflare Pages</div>
+    <p style="margin-top:14px">{{copy.legalNote}}</p>
+    <p style="margin-top:8px">Support: <a href="mailto:{{product.supportEmail}}">{{product.supportEmail}}</a> · Versi {{product.version}} · © {{year}} <a href="{{product.brandRepoUrl}}">{{product.name}}</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "harness-selling-kit-factory",
+  "version": "1.0.0",
+  "description": "Factory selling kit satu perintah untuk produk digital apa pun (landing, download, lisensi Ed25519, guidebook cetak, caption, prompt aset, email, checklist).",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "kit-factory": "factory/cli.js"
+  },
+  "scripts": {
+    "build:harness": "node factory/cli.js examples/harness-extension/product.json out/harness-extension",
+    "check": "node --check factory/cli.js"
+  },
+  "dependencies": {},
+  "license": "UNLICENSED",
+  "private": true
+}

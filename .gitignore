@@ -1,0 +1,28 @@
+# Hasil factory — jangan pernah di-commit (memuat private key & kode lisensi asli)
+out/
+
+# Rahasia lisensi & kredensial
+*.pem
+.env
+.env.*
+!.env.example
+license/
+keys.csv
+keys.json
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Aset besar / sementara
+*.mp4
+*.zip
+brand/tmp/
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp

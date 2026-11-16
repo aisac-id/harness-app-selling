@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="Buku panduan resmi {{product.name}} — install, tutorial bernomor, setup AI, dan resep otomasi per sektor.">
+<title>Buku Panduan {{product.name}} — v{{product.version}}</title>
+<!--
+  BUKU PANDUAN (cetak-ready). Cara bikin PDF: buka di Chrome -> Ctrl/Cmd+P ->
+  Destination: Save as PDF -> Paper: A4 -> Background graphics: ON.
+  Bab resep otomasi diambil dari product.json (guideSectors).
+-->
+<style>
+:root{
+  --bg:{{theme.bg}}; --bg2:{{theme.bg2}}; --card:{{theme.card}}; --line:{{theme.line}};
+  --accent:{{theme.accent}}; --accent2:{{theme.accent2}};
+  --text:{{theme.text}}; --muted:{{theme.muted}}; --dim:{{theme.dim}}; --ink:{{theme.ink}};
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.sheet{max-width:820px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-weight:300;letter-spacing:.01em}
+h2{font-size:26px;margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--accent)}
+h3{font-size:16px;font-weight:600;margin:22px 0 6px}
+p{color:var(--muted);margin-bottom:12px}
+.lead{font-size:16px}
+.kicker{color:var(--accent);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:10px}
+.page{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+ul.plain{list-style:none;margin:10px 0 14px}
+ul.plain li{position:relative;padding:5px 0 5px 20px;color:var(--muted)}
+ul.plain li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.steps{list-style:none;counter-reset:st;margin-top:10px}
+.steps li{counter-increment:st;position:relative;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:16px 18px 16px 66px;margin-bottom:12px}
+.steps li::before{content:counter(st);position:absolute;left:16px;top:16px;min-width:28px;height:24px;border-radius:99px;background:{{theme.gradient}};color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:.04em}
+.steps.seq li::before{content:counter(st) "/{{stepTotal}}";min-width:40px}
+.steps li b{display:block;color:var(--text);font-size:15px;margin-bottom:4px}
+.steps li span{color:var(--muted);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 16px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--accent);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+td b{color:var(--text)}
+td span{color:var(--muted)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:var(--bg2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--accent)}
+.note{background:var(--card);border-left:3px solid var(--accent);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--muted);margin:14px 0}
+.toc{columns:2;column-gap:28px;font-size:14px;color:var(--muted);margin-top:16px}
+.toc li{padding:3px 0;list-style:none}
+.toc b{color:var(--text)}
+.qa{border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px;background:var(--card)}
+.qa b{display:block;color:var(--text);margin-bottom:4px;font-size:14.5px}
+.qa p{font-size:13.5px;margin:0}
+.cover{min-height:76vh;display:flex;flex-direction:column;justify-content:center;text-align:center;background:radial-gradient(700px 420px at 50% 0%,{{theme.glowMid}},transparent 65%)}
+.cover img{width:120px;height:120px;border-radius:26px;margin:0 auto 30px;box-shadow:0 0 60px {{theme.glowStrong}}}
+.cover h1{font-size:clamp(32px,7vw,54px);line-height:1.15}
+.cover h1 b{font-weight:600;background:{{theme.gradient}};-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover p{max-width:520px;margin:18px auto 0}
+.keybox{border:1px dashed var(--accent);border-radius:14px;padding:26px;text-align:center;background:var(--card)}
+.keybox .slot{font-family:ui-monospace,Menlo,monospace;font-size:15px;letter-spacing:.06em;color:var(--accent);background:var(--bg2);border-radius:8px;padding:14px;margin:14px 0;word-break:break-all}
+footer.doc{padding:26px 0 60px;color:var(--dim);font-size:12.5px;text-align:center}
+@media print{
+  :root{--bg:#FFFFFF;--bg2:#F6F7F9;--card:#FFFFFF;--line:#D9DEE7;--text:#0F172A;--muted:#334155;--dim:#64748B}
+  @page{size:A4;margin:16mm 14mm}
+  body{font-size:11.5pt}
+  .sheet{max-width:none;padding:0}
+  .page{border-bottom:0;padding:0;margin:0;page-break-after:always;break-after:page}
+  .page.last{page-break-after:auto;break-after:auto}
+  .cover{min-height:240mm}
+  .steps li,.qa,table,.keybox{page-break-inside:avoid;break-inside:avoid}
+  h2{page-break-after:avoid;break-after:avoid}
+  a{color:var(--text)}
+  .screen-only{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<div class="page cover">
+  <img src="{{product.brand}}/logo.png" alt="Logo {{product.name}}">
+  <div class="kicker">Buku Panduan Resmi · Versi {{product.version}}</div>
+  <h1>{{product.name}}<br><b>{{copy.heroTitle}} {{copy.heroHighlight}}</b></h1>
+  <p class="lead">{{product.description}}</p>
+  <p style="margin-top:26px;font-size:13px;color:var(--dim)">{{copy.guideIntro}}</p>
+</div>
+
+<div class="page">
+  <div class="kicker">Daftar Isi</div>
+  <h2>Isi buku</h2>
+  <ul class="toc">
+    {{#each chapters}}<li><b>{{_num}}.</b> {{title}}</li>
+    {{/each}}  </ul>
+  <div class="note">
+    Baca bab 1–3 sekali di awal (±20 menit). Bab {{recipeChapter}} adalah referensi: buka saat ingin membuat otomasi untuk bidang Anda.
+    Halaman terakhir memuat cara pakai <b>kode lisensi</b> Anda.
+  </div>
+</div>
+
+<div class="page">
+  <div class="kicker">Bab 1 · Pengenalan</div>
+  <h2>{{product.name}} dalam satu bab</h2>
+  <p class="lead">{{product.taglineId}} — {{product.taglineEn}}</p>
+  <p>{{product.description}}</p>
+  <h3>Yang produk ini kerjakan</h3>
+  <ul class="plain">
+    {{#each features}}<li><b>{{title}}</b> — {{desc}}</li>
+    {{/each}}  </ul>
+  <h3>Yang tidak produk ini kerjakan</h3>
+  <ul class="plain">
+    {{#each boundaries}}<li>{{this}}</li>
+    {{/each}}  </ul>
+  <div class="note">Data dan kunci API Anda tinggal di perangkat sendiri. Tidak ada telemetry diam-diam, dan hasil kerja Anda selalu bisa di-export.</div>
+</div>
+
+<div class="page">
+  <div class="kicker">Bab 2 · Install</div>
+  <h2>Memasang {{product.name}}</h2>
+  <ol class="steps" style="counter-reset:st 0">
+    {{#each installSteps}}<li><b>{{title}}</b><span>{{&desc}}</span></li>
+    {{/each}}  </ol>
+  <div class="note">
+    <b>Kode lisensi Anda ada di email.</b> Belum punya? Edition Free bisa dipakai tanpa kode — aktifkan Pro kapan saja dari Settings.
+    Tautan unduhan resmi: <code>GANTI-LINK-WEB-STORE</code>.
+  </div>
+</div>
+
+<div class="page">
+  <div class="kicker">Bab 3 · Tutorial Bernomor</div>
+  <h2>{{stepTotal}} langkah dari nol sampai hasil pertama</h2>
+  <p class="lead">Ikuti urut sekali saja. Semua langkah bisa dilewati dan diulang dari Settings &rarr; Umum &rarr; "Mulai ulang tutorial".</p>
+  <ol class="steps seq">
+    {{#each tutorialSteps}}<li><b>{{title}}</b><span>{{desc}}</span></li>
+    {{/each}}  </ol>
+</div>
+
+<div class="page">
+  <div class="kicker">Bab {{aiChapter}} · AI Multi-Provider &amp; .env</div>
+  <h2>Menyambungkan AI ke {{product.name}}</h2>
+  <p class="lead">Semua provider memakai kontrak yang sama: tempel kunci, uji koneksi, pilih per tugas. Kunci disimpan terenkripsi di perangkat Anda.</p>
+  <h3>Provider yang didukung</h3>
+  <table>
+    <tr><th>Provider</th><th>Variabel .env</th><th>Base URL / Model</th><th>Catatan</th></tr>
+    {{#each providers}}<tr><td><b>{{name}}</b></td><td><span>{{envCell}}</span></td><td><span>{{urlCell}}</span></td><td><span>{{note}}</span></td></tr>
+    {{/each}}  </table>
+  <h3>Tiga cara mengisi kunci</h3>
+  <ol class="steps" style="counter-reset:st 0">
+    <li><b>Import file .env</b><span>Salin <code>env/.env.example</code> jadi <code>.env</code>, isi yang perlu, lalu Settings &rarr; Koneksi &rarr; <b>Import .env</b>. File asli tidak disalin ke mana pun.</span></li>
+    <li><b>Tempel manual</b><span>Satu per satu lewat Settings &rarr; Koneksi. Pakai tombol <b>Test connection</b> setelah mengisi.</span></li>
+    <li><b>AI lokal</b><span>Untuk data sensitif (keuangan, kesehatan, hukum): Ollama / LM Studio di <code>127.0.0.1</code>, tanpa kunci API dan tanpa keluar perangkat.</span></li>
+  </ol>
+  <div class="note">JANGAN pernah menaruh API key di <code>product.json</code>, di repo publik, atau di dalam berkas yang dibagikan ke orang lain.</div>
+</div>
+
+<div class="page">
+  <div class="kicker">Bab {{recipeChapter}} · Resep Otomasi</div>
+  <h2>Resep per sektor bisnis</h2>
+  <p class="lead">Setiap resep = satu job siap pakai. Buat dari template bawaan, jalankan sekali, lalu jadwalkan.</p>
+  {{#each guideSectors}}<h3>{{sector}}</h3>
+  <p>{{summary}}</p>
+  <ul class="plain">
+    {{#each jobs}}<li><b>{{title}}</b>{{#if desc}} — {{desc}}{{/if}}</li>
+    {{/each}}  </ul>
+  {{/each}}</div>
+
+<div class="page">
+  <div class="kicker">Bab {{troubleChapter}} · Troubleshooting</div>
+  <h2>Kalau sesuatu tidak berjalan</h2>
+  {{#each troubleshooting}}<div class="qa"><b>{{symptom}}</b><p>{{fix}}</p></div>
+  {{/each}}  <h3>Pertanyaan yang sering muncul</h3>
+  {{#each faq}}<div class="qa"><b>{{q}}</b><p>{{a}}</p></div>
+  {{/each}}</div>
+
+<div class="page last">
+  <div class="kicker">Bab {{licenseChapter}} · Kode Lisensi</div>
+  <h2>Aktivasi &amp; hak lisensi Anda</h2>
+  <div class="keybox">
+    <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)">Kode lisensi Anda ada di email pembelian</div>
+    <div class="slot">TEMPPEL KODE ANDA DI SINI — JANGAN DIFOTO / DIBAGIKAN</div>
+    <p style="margin:0;font-size:13.5px">Satu kode berlaku untuk <b>{{licenseSeats}} perangkat</b>{{licenseExpiryText}}. Kode adalah tanda tangan digital — tidak bisa dipalsukan dan tidak bisa dialih fungsikan.</p>
+  </div>
+  <h3>Yang Anda dapat per edition</h3>
+  <table>
+    <tr><th>Edition</th><th>Harga</th><th>Keterangan</th></tr>
+    {{#each editions}}<tr><td><b>{{name}}</b></td><td><span>{{price}}{{#if priceNote}} · {{priceNote}}{{/if}}</span></td><td><span>{{itemsText}}</span></td></tr>
+    {{/each}}  </table>
+  <h3>Cara mengaktifkan</h3>
+  <ol class="steps" style="counter-reset:st 0">
+    <li><b>Buka Settings &rarr; Lisensi</b><span>Atau ikuti langkah 3 tutorial saat pertama kali membuka produk.</span></li>
+    <li><b>Tempel kode</b><span>Tanpa spasi ekstra. Produk memverifikasi kode secara offline memakai kunci publik penerbit.</span></li>
+    <li><b>Selesai</b><span>Badge edition muncul di header. Bila pindah perangkat, lepas dari perangkat lama lebih dulu (transfer seat).</span></li>
+  </ol>
+  <div class="note">
+    Support: <a href="mailto:{{product.supportEmail}}">{{product.supportEmail}}</a> · sebutkan 12 karakter pertama kode Anda.<br>
+    Berkas panduan ini boleh dicetak dan disimpan, namun tidak boleh disebarluaskan secara komersial.
+  </div>
+</div>
+
+<footer class="doc">
+  {{product.name}} · {{copy.footerTagline}} · v{{product.version}} · © {{year}} — <a href="{{product.brandRepoUrl}}">{{product.brandRepoUrl}}</a>
+</footer>
+
+</div>
+</body>
+</html>

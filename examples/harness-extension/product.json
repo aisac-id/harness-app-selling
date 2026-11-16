@@ -1,0 +1,321 @@
+{
+  "name": "Harness Extension",
+  "slug": "harness-extension",
+  "version": "1.5.0",
+  "productKind": "browser extension (Manifest V3)",
+  "logoConcept": "huruf H terbentuk dari jendela browser — rail titik vertikal (tab menurun) sebagai tiang kiri, panel sidebar seperempat layar sebagai tiang kanan",
+  "uiHint": "(sidebar tipis di pinggir kanan browser, rail tab vertikal menurun, kartu data dan log langkah RPA berjalan)",
+  "tagline": {
+    "id": "Otomasi. Panen. Analisis.",
+    "en": "Automate. Harvest. Analyze."
+  },
+  "description": "Otomasi klik, panen data dan gambar, unduh konten, lalu olah dan analisis dengan AI multi-provider — langsung di browser Anda. Kalau situsnya bisa Anda buka, Harness bisa mengerjakannya: tanpa API resmi, tanpa MCP, tanpa coding.",
+  "colors": {
+    "bg": "#0B1220",
+    "accent": "#22D3EE",
+    "accent2": "#14B8A6",
+    "text": "#F8FAFC"
+  },
+  "currency": "IDR",
+  "checkoutNote": "Mayar / Lynk.id / Gumroad",
+  "brandRepoUrl": "https://github.com/aisac-id/harness-extension-sell",
+  "brandPath": "../brand",
+  "supportEmail": "halo@aisac.id",
+  "copy": {
+    "navCta": "Dapatkan Pro",
+    "heroKicker": "Browser Extension · RPA · AI",
+    "heroTitle": "Satu engine.",
+    "heroHighlight": "Semua bisnis.",
+    "heroSub": "Otomasi klik, panen data & gambar, lalu olah dan analisis dengan AI — langsung di browser Anda. Tanpa API. Tanpa MCP.",
+    "featuresTitle": "Semua yang dibutuhkan untuk memanen web",
+    "featuresSub": "Satu extension, modul lengkap. Sidebar elegan selebar seperempat layar, tab vertikal, dan mode fullscreen untuk kerja berat.",
+    "stepsTitle": "Mulai dalam 5 menit",
+    "stepsSub": "Tutorial bernomor 12 langkah memandu dari install sampai hasil nyata pertama — termasuk demo panen tanpa perlu situs target.",
+    "pricingTitle": "Sekali bayar. Milik Anda.",
+    "pricingSub": "Tanpa langganan wajib. Semua edition menyertakan update perbaikan dan hak export data Anda selamanya.",
+    "pricingNote": "Harga contoh — sesuaikan strategi Anda. Pembayaran dan pengiriman digital diproses otomatis oleh penyedia checkout (QRIS, e-wallet, kartu, transfer).",
+    "bundleTitle": "Yang Anda terima setelah membeli",
+    "bundleSub": "Semua dikirim otomatis ke email — halaman download berisi:",
+    "sectorsTitle": "Dirancang untuk 20+ sektor",
+    "sectorsSub": "Notaris memantau status permohonan, recruiter memanen kandidat, toko online memantau harga kompetitor, akuntan mengekstrak invoice — satu engine, resep berbeda.",
+    "videoTitle": "Elegan di layar Anda",
+    "videoSub": "Sidebar seperempat layar, tab vertikal menurun, dan mode fullscreen — dirancang ringan dan tidak mengganggu halaman.",
+    "footerTagline": "Otomasi. Panen. Analisis.",
+    "legalNote": "Gunakan sesuai hukum dan ketentuan situs target. Konten berhak cipta adalah tanggung jawab pengguna.",
+    "downloadTitle": "Terima kasih — paket Harness Anda siap",
+    "downloadIntro": "Ikuti empat bagian di bawah: isi paket, aktivasi lisensi, install manual, lalu sambungkan AI.",
+    "supportLine": "Ada kendala? Balas email pembelian ini, atau hubungi email support di bawah — kami balas hari kerja berikutnya.",
+    "guideIntro": "Buku panduan resmi. Bab 1-3 dibaca sekali di awal (±20 menit), bab 5 dipakai sebagai referensi resep otomasi per bidang."
+  },
+  "stats": [
+    { "value": "< 500 KB", "label": "ringan di browser" },
+    { "value": "0% CPU", "label": "saat tidak ada aktivitas" },
+    { "value": "AES-256", "label": "API key terenkripsi" },
+    { "value": "7 provider", "label": "AI cloud + lokal" },
+    { "value": "Offline", "label": "lisensi tanpa server" },
+    { "value": "20+", "label": "sektor bisnis" }
+  ],
+  "features": [
+    {
+      "icon": "gear",
+      "title": "RPA Automation",
+      "desc": "Rekam dan jalankan langkah klik, ketik, tunggu, dan ekstrak. Jeda seperti manusia, auto-pause saat situs menolak. Aman untuk akun Anda sendiri."
+    },
+    {
+      "icon": "image",
+      "title": "Universal Scraper",
+      "desc": "Gambar, teks, tabel, novel multi-bab (export EPUB), sampai unduhan file massal. Semua hasil masuk ke satu library terpusat."
+    },
+    {
+      "icon": "spark",
+      "title": "AI Multi-Provider",
+      "desc": "OpenAI, Anthropic, Gemini, Groq, DeepSeek, OpenRouter — plus AI lokal via Ollama untuk data sensitif. Ringkas, ekstrak, klasifikasi otomatis."
+    },
+    {
+      "icon": "chart",
+      "title": "Olah & Analisis",
+      "desc": "Hasil panen dibersihkan, didedupe, dan disimpan lokal. Preview, filter, statistik, lalu export JSON / CSV / ZIP / EPUB."
+    },
+    {
+      "icon": "link",
+      "title": "Platform Bridge",
+      "desc": "Kirim hasil ke sistem Anda via ingest token: antrian tahan putus koneksi dan anti data dobel. Extension menjadi worker platform Anda."
+    },
+    {
+      "icon": "lock",
+      "title": "Keamanan AES-GCM",
+      "desc": "API key dienkripsi AES-GCM 256 di perangkat, import file .env, tanpa telemetry diam-diam. Data Anda tidak pernah terkunci."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Install gratis",
+      "desc": "Pasang dari Chrome Web Store, buka sidebar dengan Alt+Shift+S. Ikuti tutorial bernomor dan jalankan demo panen pertama."
+    },
+    {
+      "title": "Beli paket",
+      "desc": "Checkout sekali bayar. Kode lisensi, buku panduan PDF, dan video tutorial langsung dikirim ke email Anda otomatis."
+    },
+    {
+      "title": "Aktifkan & bekerja",
+      "desc": "Masukkan kode sekali, fitur Pro terbuka permanen untuk versi yang dibeli. Sambungkan AI dan platform lewat Settings."
+    }
+  ],
+  "editions": [
+    {
+      "name": "Free",
+      "price": "Rp 0",
+      "priceNote": "selamanya",
+      "priceNumber": 0,
+      "checkoutUrl": "https://github.com/aisac-id/harness-extension-sell#GANTI-LINK-WEB-STORE",
+      "features": [
+        "Sidebar + tab vertikal + fullscreen",
+        "Scraper dasar (teks & gambar)",
+        "RPA manual sampai 10 langkah",
+        "Export JSON / CSV",
+        { "label": "AI multi-provider", "included": false },
+        { "label": "Platform Bridge & job terjadwal", "included": false },
+        { "label": "Novel scraper + export EPUB", "included": false }
+      ]
+    },
+    {
+      "name": "Pro",
+      "price": "Rp 299rb",
+      "priceNote": "sekali bayar",
+      "priceNumber": 299000,
+      "highlight": true,
+      "badge": "Paling Laris",
+      "checkoutUrl": "https://GANTI-CONTOH.mayar.id/harness-pro",
+      "bundleIncludes": ["Kode lisensi Pro", "Extension (ZIP + link Web Store)", "Template .env & job RPA"],
+      "features": [
+        "Semua fitur Free",
+        "Novel scraper + export EPUB/ZIP",
+        "RPA tanpa batas + jadwal otomatis",
+        "AI multi-provider + AI lokal",
+        "Platform Bridge (ingest token)",
+        "Koneksi desktop & terminal",
+        "Lisensi offline — tanpa server"
+      ]
+    },
+    {
+      "name": "Bundle Buku + Pro",
+      "price": "Rp 449rb",
+      "priceNote": "sekali bayar",
+      "priceNumber": 449000,
+      "checkoutUrl": "https://GANTI-CONTOH.mayar.id/harness-bundle",
+      "features": [
+        "Semua fitur Pro",
+        "Buku panduan lengkap (PDF)",
+        "Video tutorial langkah demi langkah",
+        "Template job siap pakai per sektor",
+        "Contoh file .env & setup AI",
+        "Kode lisensi tercetak di buku",
+        "Prioritas support"
+      ]
+    }
+  ],
+  "bundleItems": [
+    {
+      "title": "Kode lisensi",
+      "desc": "Kode aktivasi offline bertanda tangan Ed25519. Berlaku selamanya untuk versi yang dibeli, bisa dipindah perangkat (transfer seat)."
+    },
+    {
+      "title": "Extension (ZIP + link Web Store)",
+      "desc": "Versi terbaru siap pasang dari Chrome Web Store, plus file ZIP untuk install manual (load unpacked) dan versi cadangan."
+    },
+    {
+      "title": "Buku panduan PDF",
+      "desc": "Dari install, tutorial 12 langkah, setup AI multi-provider, sampai resep otomasi per sektor bisnis dan troubleshooting."
+    },
+    {
+      "title": "Video tutorial",
+      "desc": "Panduan visual langkah demi langkah: panen pertama, job terjadwal, koneksi platform, dan export hasil."
+    },
+    {
+      "title": "Template .env & job RPA",
+      "desc": "Contoh file .env per provider AI, template job JSON per sektor, dan pustaka prompt siap pakai untuk tugas bisnis."
+    }
+  ],
+  "sectors": [
+    "Notaris & PPAT", "Hukum", "HR & Rekrutmen", "Properti", "E-commerce",
+    "Keuangan & Pajak", "Asuransi", "Klinik & Kesehatan", "Pendidikan", "Logistik",
+    "Restoran & F&B", "Travel", "Agency & SEO", "Penulis & Penerbit", "Otomotif",
+    "Pertanian", "Konstruksi & Tender", "Manufaktur", "Layanan Publik", "Freelancer"
+  ],
+  "faq": [
+    {
+      "q": "Apakah butuh API atau bisa coding?",
+      "a": "Tidak. Harness bekerja seperti Anda memakai browser: melihat halaman dan melakukan klik. API dan AI bersifat opsional, bisa disambungkan belakangan lewat Settings atau import file .env."
+    },
+    {
+      "q": "Apakah aman untuk akun saya (LinkedIn, marketplace, dll)?",
+      "a": "Harness memakai sesi login Anda sendiri, tidak pernah menyimpan password, bergerak dengan jeda seperti manusia, dan berhenti otomatis saat situs menunjukkan penolakan. Otomasi tetap tunduk pada aturan situs terkait — gunakan dengan sadar."
+    },
+    {
+      "q": "Di mana data dan API key saya disimpan?",
+      "a": "Semuanya di perangkat Anda. API key dienkripsi AES-GCM 256 di SecretVault. Tidak ada telemetry diam-diam, dan data tetap bisa di-export kapan pun bahkan jika lisensi berakhir."
+    },
+    {
+      "q": "Bagaimana kalau saya ganti komputer?",
+      "a": "Lisensi bisa dipindahkan: lepas dari perangkat lama, aktifkan di perangkat baru (transfer seat). Settings dapat di-export/import JSON dan library data di-backup sebagai file."
+    },
+    {
+      "q": "Apakah ini langganan?",
+      "a": "Bukan. Sekali bayar untuk versi yang dibeli, termasuk update perbaikan. Buku panduan dan video di paket bundle menjadi milik Anda selamanya."
+    },
+    {
+      "q": "Browser apa yang didukung?",
+      "a": "Chrome, Edge, dan Brave (Manifest V3). Ringan: total di bawah 500 KB dan 0% CPU saat idle."
+    }
+  ],
+  "providers": [
+    { "name": "OpenAI", "order": 10, "baseUrl": "https://api.openai.com/v1", "model": "gpt-4o-mini", "note": "OpenAI-compatible generik — satu jalur untuk banyak vendor" },
+    { "name": "Anthropic", "order": 20, "model": "claude-3-5-sonnet-latest", "note": "format messages API sendiri" },
+    { "name": "Gemini", "order": 30, "model": "gemini-1.5-flash", "note": "Google AI Studio API" },
+    { "name": "Groq", "order": 40, "baseUrl": "https://api.groq.com/openai/v1", "model": "llama-3.3-70b-versatile", "note": "OpenAI-compatible, latency rendah" },
+    { "name": "DeepSeek", "order": 50, "baseUrl": "https://api.deepseek.com/v1", "model": "deepseek-chat", "note": "OpenAI-compatible, murah untuk ringkasan massal" },
+    { "name": "OpenRouter", "order": 60, "baseUrl": "https://openrouter.ai/api/v1", "note": "satu kunci untuk banyak model" },
+    { "name": "Ollama", "order": 70, "baseUrl": "http://127.0.0.1:11434", "model": "llama3.1", "needsKey": false, "note": "AI lokal — tanpa API key, untuk data sensitif" }
+  ],
+  "extraEnv": [
+    { "key": "PLATFORM_URL", "comment": "Platform Bridge (STANDARDS 5e): endpoint HTTPS sistem Anda" },
+    { "key": "INGEST_TOKEN", "comment": "Token write-only untuk kirim hasil; rotasi dari Settings" },
+    { "key": "LOCAL_BRIDGE_PORT", "value": "8790", "comment": "LocalBridge (5c): ws://127.0.0.1:<port>" },
+    { "key": "LOCAL_BRIDGE_PAIRING_TOKEN", "comment": "Token pairing CLI companion — ditampilkan CLI, diisi sekali" }
+  ],
+  "guideSteps": [
+    { "title": "Selamat datang & nilai produk", "desc": "Satu layar di sidebar: apa yang Harness kerjakan (panen, otomasi, analisis) dan apa yang tidak (tidak menembus login, tidak menyimpan password). Klik Mulai (2 menit)." },
+    { "title": "Bahasa & tema", "desc": "Pilih bahasa (default Indonesia) dan tema Terang/Gelap/Ikut Sistem. Perubahan langsung terlihat tanpa muat ulang." },
+    { "title": "Lisensi atau trial", "desc": "Tiga pilihan: coba Pro 14 hari tanpa kartu, masukkan kode lisensi dari buku/video/paket, atau lanjut dengan Free. Kode diverifikasi offline, badge edition muncul di header." },
+    { "title": "Kenali tampilan (tur bernomor)", "desc": "Coach-mark menyorot elemen asli berurutan: rail tab vertikal, tombol toggle rail/sidebar, tombol fullscreen, tab Data, tab Koneksi, dan Settings di posisi terbawah." },
+    { "title": "Buka sidebar & fullscreen di halaman nyata", "desc": "Buka situs apa saja, tekan Alt+Shift+S lalu Alt+Shift+F. Harness mengonfirmasi panel siap dipakai di halaman itu." },
+    { "title": "Demo panen pertama (hasil nyata)", "desc": "Jalankan demo: ImageScraper dan TextScraper sungguhan bekerja di halaman contoh bawaan, log langkah terlihat, minimal 3 item masuk library." },
+    { "title": "Lihat & olah hasil di tab Data", "desc": "Hasil demo tampil sebagai galeri/teks/tabel dengan jumlah item, ukuran, dan deteksi duplikat. Coba satu filter dan buka detail satu item." },
+    { "title": "Export hasil", "desc": "Klik Export pada dataset demo, pilih JSON/CSV/ZIP/TXT/EPUB sesuai isi. File benar-benar terunduh dan bisa dibuka di Excel atau aplikasi lain." },
+    { "title": "Sambungkan AI (opsional)", "desc": "Pilih provider, tempel API key atau klik Import file .env, lalu Test connection. Kunci langsung masuk SecretVault terenkripsi di perangkat." },
+    { "title": "Sambungkan platform / konektor (opsional)", "desc": "Tab Koneksi: isi Platform URL + Ingest Token, tekan Test. Semua konektor default OFF sampai Anda aktifkan sendiri." },
+    { "title": "Job otomatis pertama (RPA / jadwal)", "desc": "Pilih satu template resep — misalnya pantau harga halaman ini — jalankan sekali. Lihat pacing sopan bekerja, dan tombol pause/stop bisa dipakai." },
+    { "title": "Selesai & peta bantuan", "desc": "Ringkasan status (lisensi, AI, platform, job pertama) plus tiga jalan lanjutan: ulangi tutorial dari Settings, tombol ? di tiap panel, dan kontak support." }
+  ],
+  "guideSectors": [
+    {
+      "sector": "Notaris & PPAT",
+      "summary": "Pemberkasan akta dan pemantauan status permohonan di portal pemerintah berjalan tanpa refresh manual.",
+      "jobs": [
+        { "title": "Checklist kelengkapan akta", "desc": "Buka draft akta di Google Docs/Word Online, ekstrak pihak/objek/tanggal, tampilkan sisa dokumen yang kurang (KTP, NPWP, KK, sertifikat)." },
+        { "title": "Isi form portal berulang", "desc": "Isi data klien yang sama ke form AHU/BPN/OSS pada sesi login Anda — tanpa menyimpan password, user tetap review dan submit." },
+        { "title": "Pantau status permohonan", "desc": "Cek berkala status per nomor permohonan, kirim perubahan ke sistem kantor; auto-pause saat portal memberlakukan batas." }
+      ]
+    },
+    {
+      "sector": "Hukum / Firma Pengacara",
+      "summary": "Riset putusan dan pemantauan perkara terindeks rapi, analisis klausul bisa memakai AI lokal untuk kerahasiaan.",
+      "jobs": [
+        { "title": "Pemantau perkara SIPP", "desc": "Jadwal cek status per nomor perkara, notifikasi perubahan ke platform firma." },
+        { "title": "Pemanen & ringkas putusan", "desc": "Panen direktori putusan, ekstrak pasal dan pertimbangan, simpan sebagai library riset terindeks." },
+        { "title": "Review kontrak cepat", "desc": "Sorot teks kontrak di halaman, minta daftar klausul berisiko memakai prompt khusus legal." }
+      ]
+    },
+    {
+      "sector": "HR / Rekrutmen",
+      "summary": "Kandidat terkumpul terstruktur ke ATS, CV tersaring dengan alasan, lowongan tersebar ke beberapa portal.",
+      "jobs": [
+        { "title": "Pemanen kandidat", "desc": "Cari profil memakai sesi login recruiter, rapikan ke struktur, kirim ke ATS perusahaan dengan pacing aman." },
+        { "title": "Screening CV", "desc": "Panen CV yang dibuka, skor kecocokan terhadap job description, export CSV dengan alasan per kandidat." },
+        { "title": "Penyebar lowongan", "desc": "Satu data master lowongan diisi ke form beberapa job portal secara berurutan." }
+      ]
+    },
+    {
+      "sector": "E-commerce / Retail",
+      "summary": "Harga kompetitor, sentimen review, dan upload produk massal berjalan terjadwal.",
+      "jobs": [
+        { "title": "Intelijen harga", "desc": "Panen harga + stok produk pesaing terjadwal, kirim ke dashboard, alert saat berubah." },
+        { "title": "Analisis review", "desc": "Panen review sendiri/pesaing, kelompokkan sentimen dan keluhan terbanyak, buat laporan mingguan." },
+        { "title": "Upload produk massal", "desc": "Dari CSV master, isi form produk marketplace satu per satu dengan jeda manusiawi." }
+      ]
+    },
+    {
+      "sector": "Keuangan / Akuntansi / Pajak",
+      "summary": "Invoice dan mutasi masuk ke CSV akuntansi; untuk data sensitif gunakan AI lokal tanpa keluar perangkat.",
+      "jobs": [
+        { "title": "Ekstraksi invoice", "desc": "Panen invoice yang dibuka di webmail/portal, ekstrak vendor, tanggal, nominal, dan pajak ke CSV." },
+        { "title": "Rekap mutasi", "desc": "Panen tabel mutasi e-banking pada sesi Anda sendiri, normalisasi, export untuk rekonsiliasi." },
+        { "title": "Asisten form pajak", "desc": "Bantu mengisi form berulang di e-Faktur/e-Bupot dari data siap — user tetap review dan submit." }
+      ]
+    },
+    {
+      "sector": "Properti / Real Estate",
+      "summary": "Pasar listing terpantau per area dan satu data properti bisa tayang di banyak portal.",
+      "jobs": [
+        { "title": "Pemantau harga listing", "desc": "Panen listing marketplace properti per area, hitung harga per m2 dan tren, kirim ke platform agency." },
+        { "title": "Auto-posting listing", "desc": "Satu data properti diisi ke beberapa portal iklan secara berurutan." },
+        { "title": "Ringkas dokumen properti", "desc": "Ekstrak luas, lokasi, dan status hukum dari dokumen yang dibuka di browser." }
+      ]
+    },
+    {
+      "sector": "Marketing / Agency / SEO",
+      "summary": "Audit halaman, riset angle kompetitor, copy multi-varian, dan laporan white-label ke klien.",
+      "jobs": [
+        { "title": "Audit halaman instan", "desc": "Panen meta, heading, konten, dan alt gambar; hasilkan skor SEO plus rekomendasi." },
+        { "title": "Panen konten kompetitor", "desc": "Kumpulkan artikel/landing page pesaing untuk analisis angle dan CTA." },
+        { "title": "Laporan klien terjadwal", "desc": "Hasil audit terkirim ke platform agency lewat ingest token sebagai laporan white-label." }
+      ]
+    },
+    {
+      "sector": "Freelancer / Konsultan",
+      "summary": "Proyek terpantau harian, proposal dan rekap invoice tersusun otomatis.",
+      "jobs": [
+        { "title": "Pemanen job board", "desc": "Panen lowongan proyek, skor kecocokan dengan skill Anda, kirim shortlist harian." },
+        { "title": "Generator proposal", "desc": "Dari deskripsi proyek hasil panen, susun draf proposal yang dipersonalisasi." },
+        { "title": "Rekap invoice klien", "desc": "Panen invoice di webmail jadi rekap pendapatan bulanan CSV." }
+      ]
+    }
+  ],
+  "license": {
+    "count": 5,
+    "seats": 3,
+    "expiry": null,
+    "bundleId": "buku-harness",
+    "issuer": "aisac-id"
+  }
+}
